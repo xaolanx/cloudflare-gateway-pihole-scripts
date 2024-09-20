@@ -35,13 +35,9 @@ jobs:
 
       - name: Download allowlists
         run: npm run download:allowlist
-  \\      env:
-  \\        ALLOWLIST_URLS: ${{ vars.ALLOWLIST_URLS }}
 
       - name: Download blocklists
         run: npm run download:blocklist
-  \\      env:
-  \\        BLOCKLIST_URLS: ${{ vars.BLOCKLIST_URLS }}
 
       - name: Delete old rules and lists
         run: npm run cloudflare-delete
@@ -49,8 +45,6 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_LIST_ITEM_LIMIT: ${{ secrets.CLOUDFLARE_LIST_ITEM_LIMIT }}
-\\         DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-\\          FAST_MODE: ${{ vars.FAST_MODE }}
 
       - name: Create new rules and lists
         run: npm run cloudflare-create
@@ -59,8 +53,6 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_LIST_ITEM_LIMIT: ${{ secrets.CLOUDFLARE_LIST_ITEM_LIMIT }}
-  \        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-  \        FAST_MODE: ${{ vars.FAST_MODE }}
 
       - name: Send ping request
         if: env.PING_URL != ''
