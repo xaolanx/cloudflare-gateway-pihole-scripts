@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          repository: "xaolan/cloudflare-gateway-pihole-scripts"
+          repository: "xaolanx/cloudflare-gateway-pihole-scripts"
           ref: "main"
 
       - name: Install Node.js
